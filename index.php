@@ -49,7 +49,7 @@ include "create.php";
         <?php
               $student = new Student();
               $rows = $student->select();
-
+            if($rows != ''){
               foreach ($rows as $row) {
              ?>
             <tr>
@@ -82,7 +82,11 @@ include "create.php";
             </td>
             <td><?php if($row['id_board'] == 3 ) echo "Fail"; else echo "Pass";?></td>
             </tr>
-            <? } ?>
+            <? } } else {
+              echo "<td>";
+              echo "No students";
+              echo "</td>";
+            } ?>
         </tbody>
         </table>
     </div>
